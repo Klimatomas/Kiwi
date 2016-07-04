@@ -47,12 +47,10 @@ def apply_config(data):
     if x["status"] == 0:
         return "api currently offline"
     else:
-        print "tusom"
         try:
             for i in data:
                 i["price"] *= config_loader.cfg["margin"]
         except TypeError as e:
-            print "pruser"
             pass
 
     return dumps(data)
