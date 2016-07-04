@@ -1,0 +1,13 @@
+click==6.6
+configloader==1.0.1
+cssselect==0.9.2
+Flask==0.11.1
+grab==0.4.13
+itsdangerous==0.24
+Jinja2==2.8
+lxml==3.6.0
+MarkupSafe==0.23
+pycurl==7.43.0
+redis==2.10.5
+ujson==1.35
+Werkzeug==0.11.10
