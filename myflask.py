@@ -39,17 +39,17 @@ def get_all():
 
 @app.route('/<start>/<end>', methods=['GET'])
 def get_fromto(start, end):
-    return dumps(agency.read_redis(start, end))
+    return apply_config(agency.read_redis(start, end))
 
 
 def apply_config(data):
-    x = config_loader.cfg
-    if x["status"] == 0:
+    cfgfile = config_loader.cfg
+    if cfgfile["status"] == 0:
         return "api currently offline"
     else:
         try:
             for i in data:
-                i["price"] *= config_loader.cfg["margin"]
+                i["price"] = config_loader.cfg["margin"] * int(i["price"])
         except TypeError as e:
             pass
 
